@@ -19,7 +19,7 @@ function Middle() {
         console.log(risivedCount)
     }, [risivedCount])
     return (
-        <Router>
+        <Router basename="/weather-app">
             <div className="middle container">
                 <Navigation onclick={get} />
                 {risivedCount > 0 ? (
