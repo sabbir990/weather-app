@@ -87,13 +87,13 @@ export default function LocalInfo() {
       )}
 
       {weather && weather.list && weather.list[0] && weather.list[0].main && weather.list[0].main.temp_min ? (
-        <h4> ⭐ Minimum Tempreture of the season : ({(weather.list[0].main.temp_min - 272.15).toFixed(2)})<sup>o</sup> C </h4>
+        <h4> ⭐ Min-temperture : ({(weather.list[0].main.temp_min - 272.15).toFixed(2)})<sup>o</sup> C </h4>
       ) : (
         <h4>Loading information..</h4>
       )}
 
       {weather && weather.list && weather.list[0] && weather.list[0].main && weather.list[0].main.temp_max ? (
-        <h4> ⭐ Maximum Tempreture of the season : ({(weather.list[0].main.temp_max - 272.15).toFixed(2)})<sup>o</sup> C </h4>
+        <h4> ⭐ Max-tempreture : ({(weather.list[0].main.temp_max - 272.15).toFixed(2)})<sup>o</sup> C </h4>
       ) : (
         <h4>Loading information..</h4>
       )}
