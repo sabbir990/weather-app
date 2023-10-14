@@ -15,7 +15,7 @@ function Middle() {
                 <Navigation />
                 <Routes>
                     <Route path="/" element={<LocalInfo />} />
-                    <Route path="globalInfo" element={<GlobalInfo />} />
+                    <Route path="/globalInfo" element={<GlobalInfo />} />
                 </Routes>
             </div>
         </Router>
