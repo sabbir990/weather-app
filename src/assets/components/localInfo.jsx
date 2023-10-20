@@ -77,7 +77,7 @@ export default function LocalInfo() {
 
       </div>
       {areaInfo && areaInfo.display_name ? <h4> Current Area : {areaInfo.display_name}</h4> : <h4>Loading location...</h4>}
-      <br /><br />
+      <br />
       <h3>Weather informations of current area</h3>
       <div className='underline'></div>
       {weather && weather.list && weather.list[0] && weather.list[0].main && weather.list[0].main.feels_like ? (
