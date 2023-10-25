@@ -15,9 +15,6 @@ function Middle() {
         setRisivedCount(value)
     }
 
-    useEffect(() => {
-        console.log(risivedCount)
-    }, [risivedCount])
     return (
         <Router basename="/weather-app">
             <div className="middle container">

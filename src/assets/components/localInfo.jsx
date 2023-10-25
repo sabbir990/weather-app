@@ -13,7 +13,7 @@ export default function LocalInfo() {
     setLongi(position.coords.longitude);
   }
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition)
+    navigator.geolocation.getCurrentPosition(showPosition)
   }
 
   useEffect(() => {
@@ -63,7 +63,8 @@ export default function LocalInfo() {
 
     return () => clearInterval(interval);
 
-}, [time])
+  }, [time])
+
 
 
   return (
@@ -76,40 +77,42 @@ export default function LocalInfo() {
       <div className='underline'>
 
       </div>
-      {areaInfo && areaInfo.display_name ? <h4> Current Area : {areaInfo.display_name}</h4> : <h4>Loading location...</h4>}
-      <br />
-      <h3>Weather informations of current area</h3>
-      <div className='underline'></div>
-      {weather && weather.list && weather.list[0] && weather.list[0].main && weather.list[0].main.feels_like ? (
-        <h4> ⭐ Feels like : ({(weather.list[0].main.feels_like - 272.15).toFixed(2)})<sup>o</sup> C </h4>
-      ) : (
-        <h4>Loading information..</h4>
-      )}
+      <div>
+        {areaInfo && areaInfo.display_name ? <h4> Current Area : {areaInfo.display_name}</h4> : <h4>Loading location...</h4>}
+        <br />
+        <h3>Weather informations of current area</h3>
+        <div className='underline'></div>
+        {weather && weather.list && weather.list[0] && weather.list[0].main && weather.list[0].main.feels_like ? (
+          <h4> ⭐ Feels like : ({(weather.list[0].main.feels_like - 272.15).toFixed(2)})<sup>o</sup> C </h4>
+        ) : (
+          <h4>Loading information..</h4>
+        )}
 
-      {weather && weather.list && weather.list[0] && weather.list[0].main && weather.list[0].main.temp_min ? (
-        <h4> ⭐ Min-temperture : ({(weather.list[0].main.temp_min - 272.15).toFixed(2)})<sup>o</sup> C </h4>
-      ) : (
-        <h4>Loading information..</h4>
-      )}
+        {weather && weather.list && weather.list[0] && weather.list[0].main && weather.list[0].main.temp_min ? (
+          <h4> ⭐ Min-temperture : ({(weather.list[0].main.temp_min - 272.15).toFixed(2)})<sup>o</sup> C </h4>
+        ) : (
+          <h4>Loading information..</h4>
+        )}
 
-      {weather && weather.list && weather.list[0] && weather.list[0].main && weather.list[0].main.temp_max ? (
-        <h4> ⭐ Max-tempreture : ({(weather.list[0].main.temp_max - 272.15).toFixed(2)})<sup>o</sup> C </h4>
-      ) : (
-        <h4>Loading information..</h4>
-      )}
+        {weather && weather.list && weather.list[0] && weather.list[0].main && weather.list[0].main.temp_max ? (
+          <h4> ⭐ Max-tempreture : ({(weather.list[0].main.temp_max - 272.15).toFixed(2)})<sup>o</sup> C </h4>
+        ) : (
+          <h4>Loading information..</h4>
+        )}
 
-      {weather && weather.list && weather.list[0] && weather.list[0].main && weather.list[0].main.humidity ? (
-        <h4> ⭐ Humidity : {(weather.list[0].main.humidity)}</h4>
-      ) : (
-        <h4>Loading information..</h4>
-      )}
-      {weather && weather.list && weather.list[1] && weather.list[1].weather && weather.list[1].weather[0] && weather.list[1].weather[0].description ? (
-        <h4> ⭐ Weather : {weather.list[1].weather[0].description}</h4>
-      ) : <h4>Loading information..</h4>}
+        {weather && weather.list && weather.list[0] && weather.list[0].main && weather.list[0].main.humidity ? (
+          <h4> ⭐ Humidity : {(weather.list[0].main.humidity)}</h4>
+        ) : (
+          <h4>Loading information..</h4>
+        )}
+        {weather && weather.list && weather.list[1] && weather.list[1].weather && weather.list[1].weather[0] && weather.list[1].weather[0].description ? (
+          <h4> ⭐ Weather : {weather.list[1].weather[0].description}</h4>
+        ) : <h4>Loading information..</h4>}
 
-      {time ? (
-        <h4> ⭐ Current time : {time}</h4>
-      ) : <h4> Loading information..</h4>}
+        {time ? (
+          <h4> ⭐ Current time : {time}</h4>
+        ) : <h4> Loading information..</h4>}
+      </div>
     </div>
   )
 }

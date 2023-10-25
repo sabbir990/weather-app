@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './middle.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,18 +7,21 @@ export default function GlobalInfo() {
   const [changedValue, setChangedValue] = useState('');
   const [searchedValue, setSearchedValue] = useState('');
   const [weather, setWeather] = useState();
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   const handleChange = (event) => {
     setChangedValue(event.target.value)
   }
+
+
   const handleClick = () => {
     setSearchedValue(changedValue);
 
     setCount(count + 1)
+
   }
 
   useEffect(() => {
-    if (!searchedValue && searchedValue === ""  && count > 0) {
+    if (!searchedValue && searchedValue === "" && count > 0) {
       toast.error("Enter an area's name first!")
     }
 
@@ -34,6 +37,8 @@ export default function GlobalInfo() {
       })
     }
   }, [searchedValue])
+
+
 
   return (
     <div>
